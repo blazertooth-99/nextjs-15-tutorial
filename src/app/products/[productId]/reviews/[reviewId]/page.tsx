@@ -4,21 +4,25 @@ function getRandomInt (count: number) {
     return Math.floor(Math.random() * count);
 }
 
-export default function ReviewDetail({
+export default async function ReviewDetail({
     params,
-
 }: {
-    params: {
+    params: Promise<{
         productId: string;
         reviewId: string;
-    };
+    }>;
 }){
-    if (parseInt(params.reviewId) > 1000) {
+    const random = getRandomInt(2);
+    if(random === 1){
+        throw new Error ("Error loading review");
+    }
+    const { productId, reviewId } = await params;
+    if (parseInt(reviewId) > 1000) {
         notFound();
     }
     return (
         <h1>
-            Review {params.reviewId} for product {params.productId}
+            Review {reviewId} for product {productId}
         </h1>
     )
 }
