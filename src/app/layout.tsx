@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ErrorWrapper } from "./error-wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,23 +21,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <header 
-      style={{
-        backgroundColor: "lightblue",
-        padding: "1rem",
-      }}>
-        <p>Header</p>
-      </header>
-      {children}
-      <footer
-        style={{ 
-          backgroundColor: "ghostwhite",
-          padding: "1rem",
-          textAlign: "center",
-          color: "black",
-        }}>
-        <p>Footer</p>
-      </footer>
+        <header
+          style={{
+            backgroundColor: "lightblue",
+            padding: "1rem",
+          }}>
+          <p>Header</p>
+        </header>
+        <ErrorWrapper>
+          {children}
+        </ErrorWrapper>
+        <footer
+          style={{
+            backgroundColor: "ghostwhite",
+            padding: "1rem",
+            textAlign: "center",
+            color: "black",
+          }}>
+          <p>Footer</p>
+        </footer>
       </body>
     </html>
   );
