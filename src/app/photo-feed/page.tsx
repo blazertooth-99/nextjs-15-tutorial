@@ -4,11 +4,11 @@ import Image from 'next/image'
 
 export default function Home() {
     return (
-        <main className='relative mx-auto'>
+        <main className='container mx-auto'>
             <h1 className='text-center text-3xl font-bold my-4'>
                 New Wonders of the World
             </h1>
-            <div className='items-center grid grid-cols-1 md:grid-cols-4 gap-4'>
+            <div className='relative grid grid-cols-1 md:grid-cols-4 gap-4'>
                 {wonders.map(({id, src, name }) => (
                     <Link key= {id} href={`/photo-feed/${id}`}>
                         <Image
@@ -16,7 +16,7 @@ export default function Home() {
                         src={src}
                         width={300}
                         height={300}
-                        className='flex m-5'
+                        className="w-full h-48 object-cover rounded-lg hover:opacity-75 transition-opacity cursor-pointer"
                         />
                     </Link>
                 ))}

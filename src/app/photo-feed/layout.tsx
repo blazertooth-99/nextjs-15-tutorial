@@ -6,8 +6,10 @@ export default function Layout(props: {
 }) {
     return (
         <>
-            {props.modal}
-            {props.children}
+            <div className="flex items-center justify-center">
+                {props.modal}
+                {props.children}
+            </div>
         </>
     );
 }

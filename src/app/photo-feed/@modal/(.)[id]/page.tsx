@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import wondersImages, { WonderImage } from '@/app/photo-feed/wonders'
-import Modal from '@/app/components/modal'
+import Modal from '@/components/modal'
 
 export default async function PhotoModal ({
     params,
@@ -15,7 +15,9 @@ export default async function PhotoModal ({
             <Image
                 src={photo.src}
                 alt={photo.name}
-                className="relative w-full h-auto max-w-[300px] object-cover aspect-square"
+                width={300}
+                height={300}
+                className="object-cover aspect-square"
             />
 
             <div className="bg-white p-4">
